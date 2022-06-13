@@ -33,12 +33,14 @@ class BattleService implements Runnable {
                     System.out.println("score1: "+score1);
                     score2 = in2.readLine();
                     System.out.println("score2: "+score2);
-                    if(score1.equals("ji") && score2.equals("ji")) {
-                        break;
-                    }
                     writer1.println(score2);
                     writer2.println(score1);
+                    if((score1 != null && score2 != null) && (score1.equals("end") || score2.equals("end"))){
+                        break;
+                    }
                 }
+                socket1.close();
+                socket2.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
